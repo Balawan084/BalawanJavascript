@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fungsi Output JavaScript</title>
+
+<style>
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #0f1c2c, #1c2c3c, #2ca3d2);
+    color: #fff;
+}
+
+.wrapper {
+    width: 100%;
+    max-width: 900px;
+    padding: 40px 20px;
+    box-sizing: border-box;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #00ffe0;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+}
+
+button {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #00ffe0, #00a8ff);
+    color: #1e1e1e;
+    cursor: pointer;
+}
+
+.hasil {
+    margin-top: 10px;
+    padding: 10px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 8px;
+}
+
+/* tombol kembali */
+.back {
+    display: block;
+    margin: 30px auto 0;
+    text-align: center;
+}
+
+.back a {
+    text-decoration: none;
+    background: #00ffe0;
+    color: #000;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+</style>
+
+<script>
+// contoh output dasar
+console.log("Program berjalan");
+
+// fungsi hitung
+function luassegitiga(){
+    var alas = prompt("Masukkan alas?");
+    var tinggi = prompt("Masukkan tinggi?");
+    var luas = 0.5 * alas * tinggi;
+    document.getElementById("hasil1").innerHTML = "Luas: " + luas.toFixed(2);
+}
+
+function volumekerucut(){
+    var r = prompt("Masukkan jari-jari?");
+    var t = prompt("Masukkan tinggi?");
+    var volume = (1/3) * Math.PI * r * r * t;
+    document.getElementById("hasil2").innerHTML = "Volume: " + volume.toFixed(2);
+}
+
+function luasbola(){
+    var r = prompt("Masukkan jari-jari?");
+    var luas = 4 * Math.PI * r * r;
+    document.getElementById("hasil3").innerHTML = "Luas: " + luas.toFixed(2);
+}
+
+function volumebola(){
+    var r = prompt("Masukkan jari-jari?");
+    var volume = (4/3) * Math.PI * r * r * r;
+    document.getElementById("hasil4").innerHTML = "Volume: " + volume.toFixed(2);
+}
+
+function volumekubus(){
+    var s = prompt("Masukkan sisi?");
+    var volume = s * s * s;
+    document.getElementById("hasil5").innerHTML = "Volume: " + volume.toFixed(2);
+}
+
+function luaskerucut(){
+    var r = prompt("Masukkan jari-jari?");
+    var s = prompt("Masukkan garis pelukis?");
+    var luas = Math.PI * r * (r + s);
+    document.getElementById("hasil6").innerHTML = "Luas: " + luas.toFixed(2);
+}
+</script>
+</head>
+
+<body>
+<div class="wrapper">
+
+<h2>Fungsi Output JavaScript</h2>
+
+<!-- contoh output -->
+<div style="text-align:center; margin-bottom:20px;">
+    <button onclick="alert('Ini contoh alert!')">Contoh Alert</button>
+</div>
+
+<div class="container">
+
+<div class="card">
+<h3>Luas Segitiga</h3>
+<button onclick="luassegitiga()">Hitung</button>
+<div class="hasil" id="hasil1"></div>
+</div>
+
+<div class="card">
+<h3>Volume Kerucut</h3>
+<button onclick="volumekerucut()">Hitung</button>
+<div class="hasil" id="hasil2"></div>
+</div>
+
+<div class="card">
+<h3>Luas Bola</h3>
+<button onclick="luasbola()">Hitung</button>
+<div class="hasil" id="hasil3"></div>
+</div>
+
+<div class="card">
+<h3>Volume Bola</h3>
+<button onclick="volumebola()">Hitung</button>
+<div class="hasil" id="hasil4"></div>
+</div>
+
+<div class="card">
+<h3>Volume Kubus</h3>
+<button onclick="volumekubus()">Hitung</button>
+<div class="hasil" id="hasil5"></div>
+</div>
+
+<div class="card">
+<h3>Luas Kerucut</h3>
+<button onclick="luaskerucut()">Hitung</button>
+<div class="hasil" id="hasil6"></div>
+</div>
+
+</div>
+
+<!-- tombol kembali -->
+<div class="back">
+    <a href="index.html">⬅ Kembali ke Menu Utama</a>
+</div>
+
+</div>
+</body>
+</html>

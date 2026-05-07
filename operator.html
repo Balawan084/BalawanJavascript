@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Operator JavaScript</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    background: linear-gradient(135deg, #0f172a, #1e293b, #334155);
+    color: #e2e8f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* CARD UTAMA */
+.container {
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(15px);
+    padding: 30px;
+    border-radius: 20px;
+    width: 400px;
+    text-align: center;
+    box-shadow: 0 0 40px rgba(0,0,0,0.6);
+}
+
+/* JUDUL */
+h2 {
+    margin-bottom: 20px;
+}
+
+/* BUTTON */
+button {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #3b82f6, #1e40af);
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* HOVER MENGEMBANG */
+button:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 15px #3b82f6;
+}
+
+/* OUTPUT TEXT */
+.output p {
+    margin: 5px 0;
+    transition: 0.3s;
+}
+
+/* HOVER TEKS */
+.output p:hover {
+    transform: scale(1.05);
+    color: #60a5fa;
+}
+
+/* HALAMAN */
+.halaman {
+    display: none;
+}
+
+/* ===== TAMBAHAN TOMBOL KEMBALI ===== */
+.back {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.back a {
+    text-decoration: none;
+    background: #22d3ee;
+    color: #000;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- MENU -->
+    <div id="menu">
+        <h2>Pilih Materi</h2>
+        <button onclick="tampil('penugasan')">Operator Penugasan</button>
+        <button onclick="tampil('perbandingan')">Operator Perbandingan</button>
+        <button onclick="tampil('logika')">Operator Logika</button>
+    </div>
+
+    <!-- PENUGASAN -->
+    <div id="penugasan" class="halaman">
+        <h2>Operator Penugasan</h2>
+        <div id="isiPenugasan" class="output"></div>
+        <button onclick="kembali()">Kembali</button>
+    </div>
+
+    <!-- PERBANDINGAN -->
+    <div id="perbandingan" class="halaman">
+        <h2>Operator Perbandingan</h2>
+        <div id="isiPerbandingan" class="output"></div>
+        <button onclick="kembali()">Kembali</button>
+    </div>
+
+    <!-- LOGIKA -->
+    <div id="logika" class="halaman">
+        <h2>Operator Logika</h2>
+        <div id="isiLogika" class="output"></div>
+        <button onclick="kembali()">Kembali</button>
+    </div>
+
+</div>
+
+<script>
+function tampil(halaman) {
+    document.getElementById("menu").style.display = "none";
+    document.getElementById(halaman).style.display = "block";
+
+    if (halaman === "penugasan") {
+        var hasil = "";
+
+        var Tabungan = 100000;
+        hasil += `<p>Tabungan = ${Tabungan}</p>`;
+
+        Tabungan += 25000;
+        hasil += `<p>Tabungan = ${Tabungan}</p>`;
+
+        Tabungan -= 10000;
+        hasil += `<p>Tabungan = ${Tabungan}</p>`;
+
+        Tabungan *= 4;
+        hasil += `<p>Tabungan = ${Tabungan}</p>`;
+
+        Tabungan /= 5;
+        hasil += `<p>Tabungan = ${Tabungan}</p>`;
+
+        Tabungan **= 5;
+        hasil += `<p>Tabungan = ${Tabungan}</p>`;
+
+        document.getElementById("isiPenugasan").innerHTML = hasil;
+    }
+
+    if (halaman === "perbandingan") {
+        var hasil = "";
+        var aku = 20;
+        var kamu = 19;
+
+        hasil += `<p>${aku} == ${kamu} = ${aku == kamu}</p>`;
+        hasil += `<p>${aku} > ${kamu} = ${aku > kamu}</p>`;
+        hasil += `<p>${aku} >= ${kamu} = ${aku >= kamu}</p>`;
+        hasil += `<p>${aku} < ${kamu} = ${aku < kamu}</p>`;
+        hasil += `<p>${aku} <= ${kamu} = ${aku <= kamu}</p>`;
+        hasil += `<p>${aku} != ${kamu} = ${aku != kamu}</p>`;
+
+        document.getElementById("isiPerbandingan").innerHTML = hasil;
+    }
+
+    if (halaman === "logika") {
+        var hasil = "";
+        var aku = 20;
+        var kamu = 19;
+
+        var benar = aku > kamu;
+        var salah = aku < kamu;
+
+        hasil += `<p>${benar} && ${salah} = ${benar && salah}</p>`;
+        hasil += `<p>${benar} || ${salah} = ${benar || salah}</p>`;
+        hasil += `<p>!${benar} = ${!benar}</p>`;
+
+        document.getElementById("isiLogika").innerHTML = hasil;
+    }
+}
+
+function kembali() {
+    document.getElementById("menu").style.display = "block";
+    document.getElementById("penugasan").style.display = "none";
+    document.getElementById("perbandingan").style.display = "none";
+    document.getElementById("logika").style.display = "none";
+}
+</script>
+
+<!-- ===== TOMBOL KEMBALI KE INDEX ===== -->
+<div class="back">
+    <a href="index.html">⬅ Menu Utama</a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Output JavaScript</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    background:linear-gradient(135deg,#020617,#0f172a,#1e293b);
+    color:white;
+    position:relative;
+}
+
+/* BACKGROUND GLOW */
+body::before{
+    content:"";
+    position:absolute;
+    width:400px;
+    height:400px;
+    background:#3b82f6;
+    filter:blur(150px);
+    opacity:0.3;
+    top:-100px;
+    left:-100px;
+}
+
+body::after{
+    content:"";
+    position:absolute;
+    width:350px;
+    height:350px;
+    background:#22d3ee;
+    filter:blur(150px);
+    opacity:0.2;
+    bottom:-100px;
+    right:-100px;
+}
+
+/* CARD */
+.container{
+    width:90%;
+    max-width:500px;
+    padding:35px;
+    border-radius:25px;
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(15px);
+    box-shadow:0 10px 40px rgba(0,0,0,0.5);
+    text-align:center;
+    position:relative;
+    z-index:2;
+    animation:fade 1s ease;
+}
+
+/* TITLE */
+h2{
+    font-size:30px;
+    margin-bottom:10px;
+}
+
+.sub{
+    opacity:0.7;
+    font-size:14px;
+    margin-bottom:30px;
+}
+
+/* BUTTON AREA */
+.buttons{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+}
+
+/* BUTTON */
+button{
+    padding:14px;
+    border:none;
+    border-radius:15px;
+    font-size:15px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+    color:white;
+    background:linear-gradient(135deg,#3b82f6,#2563eb);
+    box-shadow:0 5px 15px rgba(59,130,246,0.4);
+}
+
+button:hover{
+    transform:translateY(-5px) scale(1.03);
+    box-shadow:0 10px 25px rgba(59,130,246,0.6);
+}
+
+/* OUTPUT */
+#hasil{
+    margin-top:30px;
+    padding:20px;
+    min-height:80px;
+    border-radius:15px;
+    background:rgba(255,255,255,0.06);
+    font-size:18px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:0.4s;
+    animation:fade 0.5s;
+}
+
+/* BACK BUTTON */
+.back{
+    margin-top:25px;
+}
+
+.back a{
+    text-decoration:none;
+    color:#93c5fd;
+    transition:0.3s;
+}
+
+.back a:hover{
+    color:white;
+}
+
+/* ANIMATION */
+@keyframes fade{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>🚀 Output </h2>
+    <p class="sub">Menampilkan berbagai jenis output interaktif</p>
+
+    <div class="buttons">
+        <button onclick="teks()">💬 Teks</button>
+        <button onclick="waktu()">⏰ Waktu</button>
+        <button onclick="warna()">🎨 Warna</button>
+        <button onclick="motivasi()">🔥 Motivasi</button>
+    </div>
+
+    <div id="hasil">
+        Klik tombol untuk menampilkan output
+    </div>
+
+    <div class="back">
+        <a href="index.html">⬅ Kembali ke Menu</a>
+    </div>
+
+</div>
+
+<script>
+function teks(){
+    document.getElementById("hasil").innerHTML =
+    "Halo 👋 Selamat datang di JavaScript!";
+}
+
+function waktu(){
+    var t = new Date();
+    document.getElementById("hasil").innerHTML =
+    "⏰ Sekarang jam: " + t.toLocaleTimeString();
+}
+
+function warna(){
+    var warna1 = "#" + Math.floor(Math.random()*16777215).toString(16);
+    var warna2 = "#" + Math.floor(Math.random()*16777215).toString(16);
+
+    document.body.style.background =
+    `linear-gradient(135deg, ${warna1}, ${warna2})`;
+
+    document.getElementById("hasil").innerHTML =
+    "🎨 Background berhasil diubah!";
+}
+
+function motivasi(){
+
+    var kata = [
+        "🔥 Jangan menyerah sebelum mencoba!",
+        "🚀 Belajar coding itu investasi masa depan.",
+        "💡 Error adalah bagian dari belajar.",
+        "⚡ Konsisten lebih penting dari sempurna.",
+        "🎯 Fokus pada progres, bukan hasil instan."
+    ];
+
+    var random = Math.floor(Math.random()*kata.length);
+
+    document.getElementById("hasil").innerHTML = kata[random];
+}
+</script>
+
+</body>
+</html>

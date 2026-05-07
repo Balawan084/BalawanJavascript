@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Percabangan Ternary</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* CARD */
+.container {
+    background: rgba(255,255,255,0.05);
+    padding: 30px;
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    width: 350px;
+    text-align: center;
+    box-shadow: 0 0 30px rgba(0,0,0,0.6);
+}
+
+/* INPUT */
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+}
+
+/* BUTTON */
+button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #3b82f6, #1e40af);
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px #3b82f6;
+}
+
+.hidden {
+    display: none;
+}
+
+.hasil {
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+/* ===== TAMBAHAN TOMBOL KEMBALI ===== */
+.back {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.back a {
+    text-decoration: none;
+    background: #22d3ee;
+    color: #000;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- LOGIN -->
+    <div id="login">
+        <h2>Login</h2>
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="cekLogin()">Masuk</button>
+        <p id="error" style="color:red;"></p>
+    </div>
+
+    <!-- HALAMAN UTAMA -->
+    <div id="app" class="hidden">
+        <h2>Selamat datang pak bos 😎</h2>
+        <input type="number" id="nilai" placeholder="Input nilai">
+        <button onclick="hitung()">Hitung</button>
+
+        <div class="hasil" id="output"></div>
+    </div>
+
+</div>
+
+<script>
+function cekLogin() {
+    var user = document.getElementById("username").value;
+    var pass = document.getElementById("password").value;
+
+    if (user === "HAFIIZ" && pass === "teh") {
+        document.getElementById("login").classList.add("hidden");
+        document.getElementById("app").classList.remove("hidden");
+    } else {
+        document.getElementById("error").innerText = "Username atau Password salah!";
+    }
+}
+
+function hitung() {
+    var nilai = document.getElementById("nilai").value;
+    var grade = "";
+
+    if (nilai >= 90) {
+        grade = "A";
+    } else if (nilai >= 80) {
+        grade = "B+";
+    } else if (nilai >= 70) {
+        grade = "B";
+    } else if (nilai >= 60) {
+        grade = "C+";
+    } else if (nilai >= 50) {
+        grade = "C";
+    } else if (nilai >= 40) {
+        grade = "D";
+    } else if (nilai >= 30) {
+        grade = "E";
+    } else {
+        grade = "F";
+    }
+
+    document.getElementById("output").innerHTML =
+        `Nilai: <b>${nilai}</b><br>Grade: <b>${grade}</b>`;
+}
+</script>
+
+<!-- ===== TOMBOL KEMBALI KE INDEX ===== -->
+<div class="back">
+    <a href="index.html">⬅ Menu Utama</a>
+</div>
+
+</body>
+</html>

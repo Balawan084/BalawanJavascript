@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Profil SMK Negeri 1 Purwokerto</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --primary:#6366f1;
+    --secondary:#22d3ee;
+    --dark:#020617;
+    --glass:rgba(255,255,255,.08);
+    --border:rgba(255,255,255,.15);
+}
+
+*{box-sizing:border-box}
+
+body{
+    margin:0;
+    font-family:'Inter',sans-serif;
+    background:
+        radial-gradient(circle at top left,#1e293b,#020617 60%);
+    color:#e5e7eb;
+    padding:50px 20px;
+    min-height:100vh;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+}
+
+.hero{
+    background:linear-gradient(135deg,var(--primary),var(--secondary));
+    padding:45px;
+    border-radius:28px;
+    box-shadow:0 30px 80px rgba(0,0,0,.6);
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.hero h1{
+    margin:0;
+    font-size:36px;
+    font-weight:800;
+}
+
+.hero p{
+    margin-top:10px;
+    opacity:.95;
+    font-size:16px;
+}
+
+.toggle{
+    margin-top:18px;
+    padding:10px 22px;
+    border:none;
+    border-radius:999px;
+    font-weight:700;
+    cursor:pointer;
+    background:white;
+    color:#4338ca;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:24px;
+}
+
+.card{
+    background:var(--glass);
+    backdrop-filter:blur(18px);
+    border:1px solid var(--border);
+    border-radius:22px;
+    padding:26px;
+    transition:.35s;
+}
+
+.card:hover{
+    transform:translateY(-8px) scale(1.02);
+}
+
+.label{
+    font-size:12px;
+    letter-spacing:1px;
+    font-weight:700;
+    color:#a5b4fc;
+    text-transform:uppercase;
+    margin-bottom:8px;
+}
+
+.value{
+    font-size:15px;
+    line-height:1.7;
+}
+
+.value a{
+    color:#38bdf8;
+    text-decoration:none;
+}
+
+/* LIGHT MODE */
+.light{
+    background:#f8fafc;
+    color:#020617;
+}
+
+.light .card{
+    background:white;
+    border:1px solid #e5e7eb;
+}
+
+.light .label{
+    color:#4338ca;
+}
+
+/* ===== MODAL ===== */
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.6);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:999;
+}
+
+.modal-box{
+    background:#020617;
+    border:1px solid var(--border);
+    padding:25px;
+    border-radius:20px;
+    text-align:center;
+    width:320px;
+}
+
+.modal-box input{
+    width:100%;
+    padding:10px;
+    border-radius:10px;
+    border:none;
+    margin:15px 0;
+}
+
+.modal-btn{
+    display:flex;
+    gap:10px;
+}
+
+.modal-box button{
+    flex:1;
+    padding:10px;
+    border:none;
+    border-radius:999px;
+    font-weight:700;
+    cursor:pointer;
+}
+
+.btn-yes{
+    background:var(--primary);
+    color:white;
+}
+
+.btn-no{
+    background:#334155;
+    color:white;
+}
+
+/* ===== TAMBAHAN TOMBOL KEMBALI ===== */
+.back{
+    text-align:center;
+    margin-top:40px;
+}
+
+.back a{
+    text-decoration:none;
+    background:#22d3ee;
+    color:#000;
+    padding:10px 20px;
+    border-radius:10px;
+    font-weight:bold;
+}
+</style>
+
+<script>
+/* DATA ASLI */
+var nama = "";
+var name = "SMK NEGERI 1 PURWOKERTO";
+var name1 = "Jalan Dr. Soeparno No. 29, Purwokerto Wetan, Kecamatan Purwokerto Timur, Kabupaten Banyumas, Jawa Tengah.";
+var name2 = "TJKT, PPLG, PM, AKL, TF, DKV, MPLB";
+var visitorCount = 2128;
+var url = "https://smkn1purwokerto.sch.id/";
+var visitorCount1 = 120;
+var name3 = "Badminton, Pramuka, Bahasa Inggris, Handball, Futsal, MPK, Basket, Paskibra, Jurnalistik, Voli, Rohis, Tari, PKS, Panahan, OSIS, PMR, Musik, Teater, dll.";
+var name4 = "Lapangan olahraga, Masjid, Lab keahlian, Lab IPAS, Ruang kelas, Kantin, Perpustakaan, Gazebo, Komputer tiap lab, dll.";
+var visitorCount2 = 27;
+var name5 = "Drs. Witoto";
+var name6 = "Ichsan Romdhona, S.Pd.";
+var name7 = "Dwi Prastanti Fajriatun, S.Pd";
+
+/* INPUT NAMA */
+function submitNama(){
+    nama = document.getElementById("namaInput").value;
+    if(nama === "") return;
+    document.getElementById("modalNama").style.display = "none";
+    document.getElementById("modalPilih").style.display = "flex";
+}
+
+/* PILIH YA */
+function pilihYa(){
+    window.location = url;
+}
+
+/* PILIH TIDAK */
+function pilihTidak(){
+    document.getElementById("modalPilih").style.display = "none";
+    document.getElementById("modalStay").style.display = "flex";
+}
+
+/* TUTUP PESAN */
+function tutupPesan(){
+    document.getElementById("modalStay").style.display = "none";
+}
+
+function toggleTheme(){
+    document.body.classList.toggle("light");
+}
+</script>
+</head>
+
+<body>
+
+<!-- MODAL NAMA -->
+<div class="modal" id="modalNama">
+    <div class="modal-box">
+        <h3>Masukkan Nama Kamu</h3>
+        <input type="text" id="namaInput" placeholder="Nama lengkap">
+        <button class="btn-yes" onclick="submitNama()">Lanjut</button>
+    </div>
+</div>
+
+<!-- MODAL PILIH -->
+<div class="modal" id="modalPilih" style="display:none;">
+    <div class="modal-box">
+        <h3>Menuju Website Sekolah?</h3>
+        <p>Apakah kamu ingin membuka website resmi sekolah?</p>
+        <div class="modal-btn">
+            <button class="btn-yes" onclick="pilihYa()">Ya</button>
+            <button class="btn-no" onclick="pilihTidak()">Tidak</button>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL TETAP DI SINI -->
+<div class="modal" id="modalStay" style="display:none;">
+    <div class="modal-box">
+        <h3>Baik 😊</h3>
+        <p>Tetap di sini saja yaa, semoga betah ✨</p>
+        <button class="btn-yes" onclick="tutupPesan()">Oke</button>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="hero">
+        <h1>Profil Sekolah</h1>
+        <p>SMK Negeri 1 Purwokerto</p>
+        <button class="toggle" onclick="toggleTheme()">🌙 / ☀️</button>
+    </div>
+
+    <div class="grid">
+        <script>
+            document.write('<div class="card"><div class="label">Nama Sekolah</div><div class="value">'+name+'</div></div>');
+            document.write('<div class="card"><div class="label">Alamat</div><div class="value">'+name1+'</div></div>');
+            document.write('<div class="card"><div class="label">Jurusan</div><div class="value">'+name2+'</div></div>');
+            document.write('<div class="card"><div class="label">Jumlah Siswa</div><div class="value">'+visitorCount+' Siswa</div></div>');
+            document.write('<div class="card"><div class="label">Website Resmi</div><div class="value"><a href="'+url+'" target="_blank">'+url+'</a></div></div>');
+            document.write('<div class="card"><div class="label">Jumlah Guru</div><div class="value">'+visitorCount1+' Orang</div></div>');
+            document.write('<div class="card"><div class="label">Ekstrakurikuler</div><div class="value">'+name3+'</div></div>');
+            document.write('<div class="card"><div class="label">Fasilitas</div><div class="value">'+name4+'</div></div>');
+            document.write('<div class="card"><div class="label">Tenaga TU</div><div class="value">'+visitorCount2+' Orang</div></div>');
+            document.write('<div class="card"><div class="label">Kepala Sekolah</div><div class="value">'+name5+'</div></div>');
+            document.write('<div class="card"><div class="label">Kapro</div><div class="value">'+name6+'</div></div>');
+            document.write('<div class="card"><div class="label">Wali Kelas</div><div class="value">'+name7+'</div></div>');
+        </script>
+    </div>
+
+    <!-- ===== TOMBOL KEMBALI ===== -->
+    <div class="back">
+        <a href="index.html">⬅ Kembali ke Menu Utama</a>
+    </div>
+
+</div>
+
+</body>
+</html>

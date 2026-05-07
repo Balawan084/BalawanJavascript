@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Riwayat Sekolah</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    min-height:100vh;
+    background:
+        linear-gradient(135deg,#020617,#0f172a,#1e293b);
+    color:white;
+    padding:40px 20px;
+}
+
+/* ===== JUDUL ===== */
+.judul{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.judul h1{
+    font-size:38px;
+    margin-bottom:10px;
+    background:linear-gradient(135deg,#38bdf8,#818cf8);
+
+    background-clip:text;
+    -webkit-background-clip:text;
+
+    color:transparent;
+    -webkit-text-fill-color:transparent;
+}
+
+.judul p{
+    color:#cbd5e1;
+    font-size:15px;
+}
+
+/* ===== CONTAINER ===== */
+.container{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:22px;
+}
+
+/* ===== CARD ===== */
+.card{
+    width:260px;
+    background:rgba(255,255,255,0.06);
+    backdrop-filter:blur(14px);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:22px;
+    padding:22px;
+    transition:0.35s;
+    position:relative;
+    overflow:hidden;
+}
+
+/* EFEK */
+.card::before{
+    content:"";
+    position:absolute;
+    width:180%;
+    height:180%;
+    background:linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.15),
+        transparent
+    );
+    top:-40%;
+    left:-40%;
+    transform:rotate(25deg);
+    opacity:0;
+    transition:0.5s;
+}
+
+.card:hover::before{
+    opacity:1;
+}
+
+.card:hover{
+    transform:translateY(-10px) scale(1.04);
+    box-shadow:0 0 25px rgba(56,189,248,0.4);
+}
+
+/* ===== ICON ===== */
+.icon{
+    font-size:45px;
+    margin-bottom:15px;
+}
+
+/* ===== ISI ===== */
+.card h2{
+    font-size:18px;
+    margin-bottom:12px;
+    color:#38bdf8;
+}
+
+.card p{
+    font-size:14px;
+    line-height:1.8;
+    color:#e2e8f0;
+}
+
+/* ===== TABLE ===== */
+.table-box{
+    margin-top:30px;
+    overflow-x:auto;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:rgba(255,255,255,0.06);
+    backdrop-filter:blur(15px);
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 0 25px rgba(0,0,0,0.4);
+}
+
+th{
+    background:linear-gradient(135deg,#3b82f6,#6366f1);
+    color:white;
+    padding:16px;
+    font-size:15px;
+}
+
+td{
+    padding:16px;
+    border-bottom:1px solid rgba(255,255,255,0.08);
+    color:#e2e8f0;
+    transition:0.3s;
+}
+
+tr:hover td{
+    background:rgba(255,255,255,0.08);
+}
+
+td:first-child{
+    font-weight:600;
+    color:#38bdf8;
+    width:220px;
+}
+
+/* ===== BUTTON ===== */
+.kembali{
+    text-align:center;
+    margin-top:45px;
+}
+
+.kembali a{
+    text-decoration:none;
+    padding:12px 28px;
+    border-radius:999px;
+    background:linear-gradient(135deg,#3b82f6,#6366f1);
+    color:white;
+    font-weight:600;
+    transition:0.3s;
+    display:inline-block;
+}
+
+.kembali a:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 20px #3b82f6;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:600px){
+
+    .judul h1{
+        font-size:28px;
+    }
+
+    .card{
+        width:100%;
+        max-width:320px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ===== JUDUL ===== -->
+<div class="judul">
+    <h1>🎓 Riwayat Pendidikan</h1>
+    <p>Perjalanan pendidikan saya dari kecil sampai sekarang</p>
+</div>
+
+<!-- ===== CARD SEKOLAH ===== -->
+<div class="container">
+
+    <div class="card">
+        <div class="icon">🧸</div>
+        <h2>PAUD Pangebatan</h2>
+        <p>
+            Belajar bernyanyi, bermain sambil belajar,
+            mewarnai, dan mengikuti lomba kentongan.
+        </p>
+    </div>
+
+    <div class="card">
+        <div class="icon">🎨</div>
+        <h2>TK Pertiwi 02</h2>
+        <p>
+            Mulai belajar membaca, berhitung,
+            dan aktif dalam kegiatan sekolah.
+        </p>
+    </div>
+
+    <div class="card">
+        <div class="icon">📚</div>
+        <h2>SD Negeri Pangebatan</h2>
+        <p>
+            Mengikuti pramuka, drumband,
+            lomba adzan, dan menggambar.
+        </p>
+    </div>
+
+    <div class="card">
+        <div class="icon">🏫</div>
+        <h2>SMP Negeri 1 Purwokerto</h2>
+        <p>
+            Belajar lebih mandiri dan aktif
+            mengikuti berbagai kegiatan sekolah.
+        </p>
+    </div>
+
+    <div class="card">
+        <div class="icon">💻</div>
+        <h2>SMK Negeri 1 Purwokerto</h2>
+        <p>
+            Jurusan TJKT, belajar teknologi jaringan,
+            komputer, dan mengikuti organisasi Paskibra.
+        </p>
+    </div>
+
+</div>
+
+<!-- ===== JUDUL TABEL ===== -->
+<div class="judul" style="margin-top:60px;">
+    <h1>📚 Perubahan Data Array</h1>
+    <p>Contoh proses array menggunakan nama sekolah</p>
+</div>
+
+<!-- ===== TABEL ===== -->
+<div class="table-box">
+
+<table>
+
+    <tr>
+        <th>Proses</th>
+        <th>Isi Data</th>
+    </tr>
+
+    <tr>
+        <td>Data Awal</td>
+        <td>
+            SD Negeri Pangebatan,
+            SMP Negeri 1 Purwokerto,
+            SMK Negeri 1 Purwokerto
+        </td>
+    </tr>
+
+    <tr>
+        <td>Setelah Diubah</td>
+        <td>
+            SD Favorit,
+            SMP Unggulan,
+            SMK Teknologi
+        </td>
+    </tr>
+
+    <tr>
+        <td>Setelah Diganti Lagi</td>
+        <td>        
+            Sekolah Idaman,
+            Sekolah Nyaman,
+            SMK Teknologi
+        </td>
+    </tr>
+
+    <tr>
+        <td>Setelah Dihapus</td>
+        <td>
+            Sekolah Nyaman,
+            SMK Teknologi
+        </td>
+    </tr>
+
+</table>
+
+</div>
+
+<!-- ===== BUTTON ===== -->
+<div class="kembali">
+    <a href="index.html">⬅ Kembali ke Menu</a>
+</div>
+
+</body>
+</html>
